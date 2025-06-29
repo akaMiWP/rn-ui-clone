@@ -1,5 +1,6 @@
-import { View, Text, SafeAreaView, ScrollView, Button } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, Image, ImageBackground } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import menu1 from '../../assets/new-menu-1.jpg';
 
 const HomePage = () => {
   return (
@@ -85,6 +86,13 @@ const Promotion = () => {
   return (
     <View className="px-3 py-6">
       <Text className="font-bold">NEWS & PROMOTION</Text>
+      <ScrollView className="mt-4">
+        <ImageBackground source={menu1} className="h-40 w-60 overflow-hidden rounded-xl">
+          <View className="flex-1 justify-end gap-x-4">
+            <Text className="bg-black/30 px-4 py-3 font-semibold text-white">Get 50 Baht off</Text>
+          </View>
+        </ImageBackground>
+      </ScrollView>
     </View>
   );
 };
