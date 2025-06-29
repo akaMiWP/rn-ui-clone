@@ -7,6 +7,7 @@ const HomePage = () => {
       <Header name="akaMiWP" />
       <QuickSelection />
       <Content stars={226} />
+      <Promotion />
     </SafeAreaView>
   );
 };
@@ -75,6 +76,15 @@ const Content = ({ stars }: { stars: number }) => {
           </View>
         </View>
       </View>
+    </View>
+  );
+};
+
+// Promotion
+const Promotion = () => {
+  return (
+    <View className="px-3 py-6">
+      <Text className="font-bold">NEWS & PROMOTION</Text>
     </View>
   );
 };
