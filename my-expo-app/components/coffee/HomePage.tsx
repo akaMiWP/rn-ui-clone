@@ -1,11 +1,12 @@
-import { View, Text, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, Button } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const HomePage = () => {
   return (
     <SafeAreaView>
-      <Header name="Pep" />
+      <Header name="akaMiWP" />
       <QuickSelection />
+      <Content stars={226} />
     </SafeAreaView>
   );
 };
@@ -30,7 +31,7 @@ const Header = ({ name }: { name: string }) => {
 const QuickSelection = () => {
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      <View className="flex flex-row gap-x-6 px-3 py-4">
+      <View className="flex flex-row gap-x-6 px-3 py-2">
         <QuickSelectionItem icon="cup-outline" title="Pay in store" />
         <QuickSelectionItem icon="bag-personal-outline" title="Delivery" />
         <QuickSelectionItem icon="storefront-outline" title="In-store Pickup" />
@@ -43,10 +44,37 @@ const QuickSelection = () => {
 const QuickSelectionItem = ({ icon, title }: { icon: any; title: string }) => {
   return (
     <View className="flex w-20 items-center gap-y-4 px-2 py-2">
-      <View className=" rounded-3xl bg-gray-100 p-4">
+      <View className=" rounded-3xl bg-gray-50 p-4">
         <MaterialCommunityIcons name={icon} size={24} />
       </View>
       <Text className="text-center font-medium">{title}</Text>
+    </View>
+  );
+};
+
+// Content
+const Content = ({ stars }: { stars: number }) => {
+  return (
+    <View className="h-72 bg-green-950">
+      <View className="flex gap-2 px-3 py-6">
+        <View className="flex-row items-center gap-2">
+          <Text className="text-4xl font-semibold text-yellow-500">Gold {stars}</Text>
+          <MaterialCommunityIcons name="star" size={24} color="#f0b100" />
+        </View>
+        <Text className="text-sm font-medium text-gray-300">Stars earned to redeem rewards</Text>
+        <View className="max-w-[60%]">
+          <View className="flex gap-y-3">
+            <Text className="font-bold text-white">A Free Upsize on Your Drink</Text>
+            <Text className="text-sm font-medium text-gray-300">
+              Get a free upsize on your favorite drink (Tall/Grande size).
+            </Text>
+            <View className="mt-3 max-w-[80%] flex-row justify-center space-x-1 rounded-3xl bg-white p-3">
+              <Text className="text-center font-medium">Redeem 20</Text>
+              <MaterialCommunityIcons name="star" size={16} color="#f0b100" />
+            </View>
+          </View>
+        </View>
+      </View>
     </View>
   );
 };
